@@ -1,11 +1,11 @@
 import { Router, Response, Request } from "express";
 
-const router = Router();
+const router: Router = Router();
 
-router.get("/songs", songsHandler);
-
-function songsHandler(req: Request, res: Response) {
+function songsHandler(req: Request, res: Response): void {
   res.sendStatus(200);
 }
+
+router.get("/songs", songsHandler);
 
 export { router };
