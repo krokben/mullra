@@ -18,3 +18,7 @@ export function getSong(store: Store, id: number): Promise<Song> {
     reject(error => error);
   });
 }
+
+export function addSong(store: Store, song: Song): void {
+  store.songs.push(song);
+}

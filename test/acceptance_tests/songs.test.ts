@@ -13,9 +13,20 @@ describe("GET /songs", () => {
 });
 
 describe("GET /songs/:id", () => {
-  it("SHOULD return 202", done => {
+  it("SHOULD return 200", done => {
     request(app)
       .get("/songs/1")
+      .end((err, res) => {
+        expect(res.status).toBe(200);
+        done();
+      });
+  });
+});
+
+describe("POST /songs", () => {
+  it("SHOULD return 202", done => {
+    request(app)
+      .post("/songs")
       .end((err, res) => {
         expect(res.status).toBe(202);
         done();
