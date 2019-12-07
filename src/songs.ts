@@ -11,8 +11,9 @@ export function getSongs(store: Store): Song[] {
 
 export function getSong(store: Store, id: number): Promise<Song> {
   return new Promise((resolve, reject) => {
-    if (store.songs.some(song => song.id === id)) {
-      resolve(store.songs.find(song => song.id === id));
+    const song = store.songs.find(song => song.id === id);
+    if (song) {
+      resolve(song);
       return;
     }
     reject(error => error);
@@ -21,4 +22,15 @@ export function getSong(store: Store, id: number): Promise<Song> {
 
 export function addSong(store: Store, song: Song): void {
   store.songs.push(song);
+}
+
+export function removeSong(store: Store, id: number): Promise<Song[]> {
+  return new Promise((resolve, reject) => {
+    const songIndex = store.songs.findIndex(song => song.id === id);
+    if (songIndex !== undefined) {
+      resolve(store.songs.splice(songIndex, 1));
+      return;
+    }
+    reject(error => error);
+  });
 }

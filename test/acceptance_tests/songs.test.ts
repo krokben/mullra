@@ -33,3 +33,14 @@ describe("POST /songs", () => {
       });
   });
 });
+
+describe("DELETE /songs/:id", () => {
+  it("SHOULD return 200", done => {
+    request(app)
+      .delete("/songs/1")
+      .end((err, res) => {
+        expect(res.status).toBe(200);
+        done();
+      });
+  });
+});
