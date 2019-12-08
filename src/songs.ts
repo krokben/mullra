@@ -28,7 +28,25 @@ export function removeSong(store: Store, id: number): Promise<Song[]> {
   return new Promise((resolve, reject) => {
     const songIndex = store.songs.findIndex(song => song.id === id);
     if (songIndex !== undefined) {
-      resolve(store.songs.splice(songIndex, 1));
+      store.songs.splice(songIndex, 1);
+      resolve();
+      return;
+    }
+    reject(error => error);
+  });
+}
+
+export function updateSongTitle(
+  store: Store,
+  id: number,
+  title: string
+): Promise<Song[]> {
+  return new Promise((resolve, reject) => {
+    const songIndex = store.songs.findIndex(song => song.id === id);
+    console.log(store.songs);
+    if (songIndex !== undefined) {
+      store.songs[songIndex].title = title;
+      resolve();
       return;
     }
     reject(error => error);

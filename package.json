@@ -6,6 +6,8 @@
   "author": "Tommy Svensson",
   "license": "MIT",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
+    "start": "tsc && node ./dist/server.js",
     "test": "jest",
     "lint": "tslint --project tsconfig.json && eslint src/*"
   },
@@ -30,6 +32,7 @@
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "^24.2.0",
+    "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^5.20.1"
   }
 }

@@ -27,6 +27,21 @@ describe("POST /songs", () => {
   it("SHOULD return 202", done => {
     request(app)
       .post("/songs")
+      .send({ song: { id: 2, title: "some title" } })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        expect(res.status).toBe(202);
+        done();
+      });
+  });
+});
+
+describe("PUT /songs/:id", () => {
+  it("SHOULD return 202", done => {
+    request(app)
+      .put("/songs/1")
+      .send({ title: "new title" })
+      .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).toBe(202);
         done();
