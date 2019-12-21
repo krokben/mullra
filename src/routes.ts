@@ -1,12 +1,18 @@
 import { Router, Response, Request } from "express";
 import jsonBody = require("body/json");
 import store from "./store";
-import { getSong, addSong, removeSong, updateSongTitle } from "./songs";
+import {
+  getSongs,
+  getSong,
+  addSong,
+  removeSong,
+  updateSongTitle,
+} from "./songs";
 
 const router: Router = Router();
 
 router.get("/songs", (req: Request, res: Response): void => {
-  res.sendStatus(200);
+  res.status(200).json(getSongs(store));
 });
 
 router.post("/songs", (req: Request, res: Response): void => {
@@ -25,6 +31,7 @@ router.put("/songs/:id", (req: Request, res: Response): void => {
     .then(() => res.sendStatus(202))
     .catch(error => res.status(404).send(error));
 });
+
 router.delete("/songs/:id", (req: Request, res: Response): void => {
   removeSong(store, Number(req.params.id))
     .then(() => res.sendStatus(200))
