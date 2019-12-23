@@ -1,5 +1,5 @@
-import { Store } from "../../src/server";
-import { Song, getSongs, getSong, addSong } from "../../src/songs";
+import { Store } from "../../server";
+import { Song, getSongs, getSong, addSong } from "../../songs";
 
 test("get songs", async () => {
   const stubStore: Store = { songs: [] };

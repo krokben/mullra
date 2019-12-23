@@ -1,11 +1,11 @@
-import { Store } from "../../src/server";
+import { Store } from "../../server";
 import {
   Song,
   getSongs,
   addSong,
   updateSongTitle,
   removeSong,
-} from "../../src/songs";
+} from "../../songs";
 
 test("POST song then GET songs STUB", async () => {
   const song = { id: 1, title: "first song" };

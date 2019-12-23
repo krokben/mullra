@@ -1,5 +1,5 @@
 import * as request from "supertest";
-import { app } from "../../src/server";
+import { app } from "../../server";
 
 describe("GET /songs", () => {
   it("SHOULD return 200", done => {
