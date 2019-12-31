@@ -1,4 +1,10 @@
-import { Song, SongState, SongActionTypes, INIT_SONGS } from "./types";
+import {
+  Song,
+  SongState,
+  SongActionTypes,
+  INIT_SONGS,
+  ADD_SONG,
+} from "./types";
 
 const initialState: SongState = {
   songs: [],
@@ -12,7 +18,12 @@ export function songReducer(
     case INIT_SONGS:
       return {
         ...state,
-        songs: [...state.songs, ...action.payload],
+        songs: action.songs,
+      };
+    case ADD_SONG:
+      return {
+        ...state,
+        songs: [...state.songs, ...[action.song]],
       };
     default:
       return state;

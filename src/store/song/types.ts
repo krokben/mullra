@@ -7,10 +7,16 @@ export interface SongState {
 }
 
 export const INIT_SONGS = "INIT_SONGS";
+export const ADD_SONG = "ADD_SONG";
 
 interface InitSongsAction {
   type: typeof INIT_SONGS;
-  payload: Song[];
+  songs: Song[];
 }
 
-export type SongActionTypes = InitSongsAction;
+interface AddSongAction {
+  type: typeof ADD_SONG;
+  song: Song;
+}
+
+export type SongActionTypes = InitSongsAction | AddSongAction;

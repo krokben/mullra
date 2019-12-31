@@ -43,7 +43,6 @@ export function updateSongTitle(
 ): Promise<Song[]> {
   return new Promise((resolve, reject) => {
     const songIndex = store.songs.findIndex(song => song.id === id);
-    console.log(store.songs);
     if (songIndex !== undefined) {
       store.songs[songIndex].title = title;
       resolve();

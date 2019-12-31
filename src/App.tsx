@@ -10,18 +10,18 @@ export default function App() {
   React.useEffect(() => {
     dispatch({
       type: INIT_SONGS,
-      payload: [...songs, ...[{ title: "song1" }, { title: "song2" }]],
+      songs: [...songs, ...[{ title: "song1" }, { title: "song2" }]],
     });
   }, []);
 
   return (
-    <div>
-      <h1>My Songs</h1>
+    <main>
+      <h1 className="mullra__header">My Songs</h1>
       <ul>
         {songs.map((song, index) => (
           <li key={`song-${index}`}>{song.title}</li>
         ))}
       </ul>
-    </div>
+    </main>
   );
 }
