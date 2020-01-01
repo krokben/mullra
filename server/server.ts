@@ -1,8 +1,11 @@
+import * as dotenv from "dotenv";
 import * as express from "express";
 import * as morgan from "morgan";
 import * as webpack from "webpack";
 import * as webpackDevMiddleware from "webpack-dev-middleware";
 import * as config from "../webpack.config.js";
+
+dotenv.config();
 
 import { router } from "./routes";
 import { Song } from "./songs";
