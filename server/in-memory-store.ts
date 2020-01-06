@@ -1,5 +1,6 @@
-import { Song } from "./songs";
-
 export default {
-  songs: [{ id: 1, title: "first song" }],
+  components: [
+    { type: "header", description: "first component" },
+    { type: "slider", description: "second component" },
+  ],
 };

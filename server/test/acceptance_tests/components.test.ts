@@ -1,10 +1,10 @@
 import * as request from "supertest";
 import { app } from "../../server";
 
-describe("GET /songs", () => {
+describe("GET /components", () => {
   it("SHOULD return 200", done => {
     request(app)
-      .get("/songs")
+      .get("/components")
       .end((err, res) => {
         expect(res.status).toBe(200);
         done();
@@ -12,10 +12,10 @@ describe("GET /songs", () => {
   });
 });
 
-describe("GET /songs/:id", () => {
+describe("GET /components/:type", () => {
   it("SHOULD return 200", done => {
     request(app)
-      .get("/songs/1")
+      .get("/components/header")
       .end((err, res) => {
         expect(res.status).toBe(200);
         done();
@@ -23,11 +23,11 @@ describe("GET /songs/:id", () => {
   });
 });
 
-describe("POST /songs", () => {
+describe("POST /components", () => {
   it("SHOULD return 202", done => {
     request(app)
-      .post("/songs")
-      .send({ song: { id: 2, title: "some title" } })
+      .post("/components")
+      .send({ component: { type: "slider", description: "some description" } })
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).toBe(202);
@@ -36,11 +36,11 @@ describe("POST /songs", () => {
   });
 });
 
-describe("PUT /songs/:id", () => {
+describe("PUT /components/:type", () => {
   it("SHOULD return 202", done => {
     request(app)
-      .put("/songs/1")
-      .send({ title: "new title" })
+      .put("/components/header")
+      .send({ description: "new description" })
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).toBe(202);
@@ -49,10 +49,10 @@ describe("PUT /songs/:id", () => {
   });
 });
 
-describe("DELETE /songs/:id", () => {
+describe("DELETE /components/:type", () => {
   it("SHOULD return 200", done => {
     request(app)
-      .delete("/songs/1")
+      .delete("/components/header")
       .end((err, res) => {
         expect(res.status).toBe(200);
         done();

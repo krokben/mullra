@@ -8,10 +8,10 @@ import * as config from "../webpack.config.js";
 dotenv.config();
 
 import { router } from "./routes";
-import { Song } from "./songs";
+import { Component } from "./components";
 
 interface Store {
-  songs: Song[];
+  components: Component[];
 }
 
 const app = express();

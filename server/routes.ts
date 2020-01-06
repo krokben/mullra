@@ -1,44 +1,42 @@
 import { Router, Response, Request } from "express";
 import inMemoryStore from "./in-memory-store";
-import { queryDB } from "./db";
 import {
-  getSongs,
-  getSong,
-  addSong,
-  removeSong,
-  updateSongTitle,
-} from "./songs";
+  getComponents,
+  getComponent,
+  addComponent,
+  updateComponentDescription,
+  removeComponent,
+} from "./components";
 
 const router: Router = Router();
 
-router.get("/songs", (req: Request, res: Response): void => {
-  queryDB("SELECT * FROM songs", [])
-    .then(songs => res.status(200).json(getSongs({ songs: songs.rows })))
-    .catch(error => {
-      console.error(error);
-      res.status(500);
-    });
+router.get("/components", (req: Request, res: Response): void => {
+  res.status(200).json(getComponents(inMemoryStore));
 });
 
-router.post("/songs", (req: Request, res: Response): void => {
-  addSong(inMemoryStore, req.body.song);
+router.post("/components", (req: Request, res: Response): void => {
+  addComponent(inMemoryStore, req.body.component);
   res.sendStatus(202);
 });
 
-router.get("/songs/:id", (req: Request, res: Response): void => {
-  getSong(inMemoryStore, Number(req.params.id))
-    .then(song => res.status(200).json(song))
+router.get("/components/:type", (req: Request, res: Response): void => {
+  getComponent(inMemoryStore, req.params.type)
+    .then(component => res.status(200).json(component))
     .catch(error => res.status(404).send(error));
 });
 
-router.put("/songs/:id", (req: Request, res: Response): void => {
-  updateSongTitle(inMemoryStore, Number(req.params.id), req.body.title)
+router.put("/components/:type", (req: Request, res: Response): void => {
+  updateComponentDescription(
+    inMemoryStore,
+    req.params.type,
+    req.body.description
+  )
     .then(() => res.sendStatus(202))
     .catch(error => res.status(404).send(error));
 });
 
-router.delete("/songs/:id", (req: Request, res: Response): void => {
-  removeSong(inMemoryStore, Number(req.params.id))
+router.delete("/components/:type", (req: Request, res: Response): void => {
+  removeComponent(inMemoryStore, req.params.type)
     .then(() => res.sendStatus(200))
     .catch(error => res.status(404).send(error));
 });
