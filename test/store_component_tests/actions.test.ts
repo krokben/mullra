@@ -1,27 +1,36 @@
-import { addSong, initSongs } from "../../src/store/song/actions";
 import {
-  ADD_SONG,
-  INIT_SONGS,
-  Song,
-  SongActionTypes,
-} from "../../src/store/song/types";
+  addComponent,
+  initComponents,
+} from "../../src/store/component/actions";
+import {
+  ADD_COMPONENT,
+  INIT_COMPONENTS,
+  Component,
+  ComponentActionTypes,
+} from "../../src/store/component/types";
 
 describe("actions", () => {
-  it("should create an action to init songs", () => {
-    const songs: Song[] = [{ title: "song1" }, { title: "song2" }];
-    const expectedAction: SongActionTypes = {
-      type: INIT_SONGS,
-      songs,
+  it("should create an action to init components", () => {
+    const components: Component[] = [
+      { type: "header", description: "some description" },
+      { type: "slider", description: "another description" },
+    ];
+    const expectedAction: ComponentActionTypes = {
+      type: INIT_COMPONENTS,
+      components,
     };
-    expect(initSongs(songs)).toEqual(expectedAction);
+    expect(initComponents(components)).toEqual(expectedAction);
   });
 
-  it("should create an action to add song", () => {
-    const song: Song = { title: "song1" };
-    const expectedAction: SongActionTypes = {
-      type: ADD_SONG,
-      song,
+  it("should create an action to add component", () => {
+    const component: Component = {
+      type: "header",
+      description: "some description",
     };
-    expect(addSong(song)).toEqual(expectedAction);
+    const expectedAction: ComponentActionTypes = {
+      type: ADD_COMPONENT,
+      component,
+    };
+    expect(addComponent(component)).toEqual(expectedAction);
   });
 });

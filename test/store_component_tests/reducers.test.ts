@@ -1,30 +1,38 @@
-import { songReducer } from "../../src/store/song/reducers";
-import { ADD_SONG, INIT_SONGS } from "../../src/store/song/types";
+import { componentReducer } from "../../src/store/component/reducers";
+import {
+  ADD_COMPONENT,
+  INIT_COMPONENTS,
+} from "../../src/store/component/types";
 
-describe("song reducer", () => {
-  it("should handle INIT_SONGS", () => {
+describe("component reducer", () => {
+  it("should handle INIT_COMPONENTS", () => {
     expect(
-      songReducer(
-        { songs: [{ title: "song1" }] },
+      componentReducer(
+        { components: [{ type: "header", description: "some description" }] },
         {
-          type: INIT_SONGS,
-          songs: [{ title: "song2" }],
+          type: INIT_COMPONENTS,
+          components: [{ type: "slider", description: "another description" }],
         }
       )
     ).toEqual({
-      songs: [{ title: "song2" }],
+      components: [{ type: "slider", description: "another description" }],
     });
   });
 
-  it("should handle ADD_SONG", () => {
+  it("should handle ADD_COMPONENT", () => {
     expect(
-      songReducer(
-        { songs: [{ title: "song1" }] },
+      componentReducer(
+        { components: [{ type: "header", description: "some description" }] },
         {
-          type: ADD_SONG,
-          song: { title: "song2" },
+          type: ADD_COMPONENT,
+          component: { type: "slider", description: "another description" },
         }
       )
-    ).toEqual({ songs: [{ title: "song1" }, { title: "song2" }] });
+    ).toEqual({
+      components: [
+        { type: "header", description: "some description" },
+        { type: "slider", description: "another description" },
+      ],
+    });
   });
 });

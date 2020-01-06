@@ -5,7 +5,7 @@ exports[`App snapshot renders 1`] = `
   <h1
     className="mullra__header"
   >
-    My Songs
+    My Components
   </h1>
   <ul />
 </main>

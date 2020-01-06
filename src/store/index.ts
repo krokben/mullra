@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import { songReducer } from "./song/reducers";
+import { componentReducer } from "./component/reducers";
 
 const rootReducer = combineReducers({
-  songs: songReducer,
+  components: componentReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
