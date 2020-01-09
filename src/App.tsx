@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { INIT_COMPONENTS } from "./store/component/types";
 
+import CarouselComponent from "./components/carousel-component";
+
 export default function App() {
   const components = useSelector(state => state.components.components);
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ export default function App() {
           <li key={`component-${index}`}>{component.title}</li>
         ))}
       </ul>
+      <CarouselComponent />
     </main>
   );
 }
