@@ -29,7 +29,7 @@ router.put("/components/:type", (req: Request, res: Response): void => {
   updateComponentDescription(
     inMemoryStore,
     req.params.type,
-    req.body.description
+    req.body.description,
   )
     .then(() => res.sendStatus(202))
     .catch(error => res.status(404).send(error));

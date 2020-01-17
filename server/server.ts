@@ -24,9 +24,10 @@ app.use(router);
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
-  })
+  }),
 );
 
+// tslint:disable-next-line:no-console
 app.listen(3000, () => console.log("[SERVER] is up and running on 3000 ..."));
 
 export { app, Store };

@@ -11,9 +11,7 @@ export function getComponents(store: Store): Component[] {
 
 export function getComponent(store: Store, type: string): Promise<Component> {
   return new Promise((resolve, reject) => {
-    const component = store.components.find(
-      component => component.type === type
-    );
+    const component = store.components.find(item => item.type === type);
     if (component) {
       resolve(component);
       return;
@@ -28,11 +26,11 @@ export function addComponent(store: Store, component: Component): void {
 
 export function removeComponent(
   store: Store,
-  type: string
+  type: string,
 ): Promise<Component[]> {
   return new Promise((resolve, reject) => {
     const componentIndex = store.components.findIndex(
-      component => component.type === type
+      component => component.type === type,
     );
     if (componentIndex !== undefined) {
       store.components.splice(componentIndex, 1);
@@ -46,11 +44,11 @@ export function removeComponent(
 export function updateComponentDescription(
   store: Store,
   type: string,
-  description: string
+  description: string,
 ): Promise<Component[]> {
   return new Promise((resolve, reject) => {
     const componentIndex = store.components.findIndex(
-      component => component.type === type
+      component => component.type === type,
     );
     if (componentIndex !== undefined) {
       store.components[componentIndex].description = description;

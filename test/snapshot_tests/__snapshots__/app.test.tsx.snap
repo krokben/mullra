@@ -2,6 +2,40 @@
 
 exports[`App snapshot renders 1`] = `
 <main>
+  <ul
+    className="sc-bdVaJa cPkZj"
+  >
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+    <li>
+      Component
+    </li>
+  </ul>
   <h1
     className="mullra__header"
   >
@@ -9,40 +43,40 @@ exports[`App snapshot renders 1`] = `
   </h1>
   <ul />
   <div
-    className="sc-bdVaJa ermwqe"
+    className="sc-bwzfXH crNJB"
   >
     <div
-      className="sc-bwzfXH fzaLFh"
+      className="sc-htpNat bTqXlc"
     >
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
       <div
-        className="sc-htpNat fulzTt"
+        className="sc-bxivhb ehyJAq"
       />
     </div>
   </div>
