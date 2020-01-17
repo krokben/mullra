@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar snapshot renders 1`] = `
+<ul
+  className="sc-bdVaJa cPkZj"
+>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+  <li>
+    Component
+  </li>
+</ul>
+`;
