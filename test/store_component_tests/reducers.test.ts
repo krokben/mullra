@@ -12,8 +12,8 @@ describe("component reducer", () => {
         {
           type: INIT_COMPONENTS,
           components: [{ type: "slider", description: "another description" }],
-        }
-      )
+        },
+      ),
     ).toEqual({
       components: [{ type: "slider", description: "another description" }],
     });
@@ -26,8 +26,8 @@ describe("component reducer", () => {
         {
           type: ADD_COMPONENT,
           component: { type: "slider", description: "another description" },
-        }
-      )
+        },
+      ),
     ).toEqual({
       components: [
         { type: "header", description: "some description" },

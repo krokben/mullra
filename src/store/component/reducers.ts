@@ -12,7 +12,7 @@ const initialState: ComponentState = {
 
 export function componentReducer(
   state = initialState,
-  action: ComponentActionTypes
+  action: ComponentActionTypes,
 ): ComponentState {
   switch (action.type) {
     case INIT_COMPONENTS:

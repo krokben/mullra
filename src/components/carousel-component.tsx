@@ -29,8 +29,8 @@ const Card = styled.div`
 const CarouselComponent = () => (
   <Carousel>
     <Track>
-      {[...Array(10)].map(() => (
-        <Card></Card>
+      {[...Array(10)].map((card, index) => (
+        <Card key={`carousel-component-card-${index}`}></Card>
       ))}
     </Track>
   </Carousel>

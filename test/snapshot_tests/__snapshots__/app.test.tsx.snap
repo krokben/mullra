@@ -8,5 +8,43 @@ exports[`App snapshot renders 1`] = `
     My Components
   </h1>
   <ul />
+  <div
+    className="sc-bdVaJa ermwqe"
+  >
+    <div
+      className="sc-bwzfXH fzaLFh"
+    >
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+      <div
+        className="sc-htpNat fulzTt"
+      />
+    </div>
+  </div>
 </main>
 `;

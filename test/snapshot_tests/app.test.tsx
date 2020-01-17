@@ -12,7 +12,7 @@ describe("App", () => {
     const root: any = create(
       <Provider store={store}>
         <App />
-      </Provider>
+      </Provider>,
     );
     expect(root.toJSON()).toMatchSnapshot();
   });
