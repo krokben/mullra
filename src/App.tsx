@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { INIT_COMPONENTS } from "./store/component/types";
 
+import Sidebar from "./components/sidebar";
 import CarouselComponent from "./components/carousel-component";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
 
   return (
     <main>
+      <Sidebar />
       <h1 className="mullra__header">My Components</h1>
       <ul>
         {components.map((component, index) => (

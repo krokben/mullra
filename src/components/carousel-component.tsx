@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
-const Carousel = styled.div`
+const CarouselComponent = styled.div`
   position: relative;
   width: 100vw;
   height: 200px;
@@ -26,14 +26,12 @@ const Card = styled.div`
   border-radius: 5px;
 `;
 
-const CarouselComponent = () => (
-  <Carousel>
+export default () => (
+  <CarouselComponent>
     <Track>
       {[...Array(10)].map((card, index) => (
         <Card key={`carousel-component-card-${index}`}></Card>
       ))}
     </Track>
-  </Carousel>
+  </CarouselComponent>
 );
-
-export default CarouselComponent;
