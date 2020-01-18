@@ -1,3 +1,5 @@
 export default {
-  components: [{ type: "carousel", description: "grabbable slider" }],
+  components: [
+    { type: "carousel", name: "Carousel", description: "grabbable slider" },
+  ],
 };

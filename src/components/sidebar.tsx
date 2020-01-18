@@ -14,10 +14,4 @@ const Sidebar = styled.ul`
   list-style-type: none;
 `;
 
-export default () => (
-  <Sidebar>
-    {[...Array(10)].map((card, index) => (
-      <li key={`sidebar-item-${index}`}>Component</li>
-    ))}
-  </Sidebar>
-);
+export default props => <Sidebar></Sidebar>;

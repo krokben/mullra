@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <main>
-      <Sidebar />
+      <Sidebar components={components} />
       <h1 className="mullra__header">My Components</h1>
       <ul>
         {components.map((component, index) => (

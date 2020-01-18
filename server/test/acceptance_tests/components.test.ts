@@ -27,7 +27,13 @@ describe("POST /components", () => {
   it("SHOULD return 202", done => {
     request(app)
       .post("/components")
-      .send({ component: { type: "slider", description: "some description" } })
+      .send({
+        component: {
+          type: "slider",
+          name: "Slider",
+          description: "some description",
+        },
+      })
       .set("Accept", "application/json")
       .end((err, res) => {
         expect(res.status).toBe(202);
