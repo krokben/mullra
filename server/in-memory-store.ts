@@ -1,6 +1,3 @@
 export default {
-  components: [
-    { type: "header", description: "first component" },
-    { type: "slider", description: "second component" },
-  ],
+  components: [{ type: "carousel", description: "grabbable slider" }],
 };

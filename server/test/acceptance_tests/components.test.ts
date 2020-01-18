@@ -15,7 +15,7 @@ describe("GET /components", () => {
 describe("GET /components/:type", () => {
   it("SHOULD return 200", done => {
     request(app)
-      .get("/components/header")
+      .get("/components/carousel")
       .end((err, res) => {
         expect(res.status).toBe(200);
         done();
@@ -39,7 +39,7 @@ describe("POST /components", () => {
 describe("PUT /components/:type", () => {
   it("SHOULD return 202", done => {
     request(app)
-      .put("/components/header")
+      .put("/components/carousel")
       .send({ description: "new description" })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -52,7 +52,7 @@ describe("PUT /components/:type", () => {
 describe("DELETE /components/:type", () => {
   it("SHOULD return 200", done => {
     request(app)
-      .delete("/components/header")
+      .delete("/components/carousel")
       .end((err, res) => {
         expect(res.status).toBe(200);
         done();
