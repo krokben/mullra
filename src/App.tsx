@@ -15,7 +15,7 @@ export default function App() {
       type: INIT_COMPONENTS,
       components: [
         ...components,
-        ...[{ title: "component1" }, { title: "component2" }],
+        ...[{ name: "component1" }, { name: "component2" }],
       ],
     });
   }, []);
