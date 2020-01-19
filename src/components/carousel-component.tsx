@@ -75,12 +75,12 @@ export default function() {
       onPointerMove={window.PointerEvent && gestureMove}
       onPointerUp={window.PointerEvent && gestureEnd}
       onTouchDown={!window.PointerEvent && gestureStart}
-      onTouchMove={!window.PointerEvent && ggestureMove}
-      onTouchUp={!window.PointerEvent && ggestureEnd}
-      onMouseDown={!window.PointerEvent && ggestureStart}
-      onMouseMove={!window.PointerEvent && ggestureMove}
-      onMouseUp={!window.PointerEvent && ggestureEnd}
-      onMouseOut={!window.PointerEvent && ggestureEnd}
+      onTouchMove={!window.PointerEvent && gestureMove}
+      onTouchUp={!window.PointerEvent && gestureEnd}
+      onMouseDown={!window.PointerEvent && gestureStart}
+      onMouseMove={!window.PointerEvent && gestureMove}
+      onMouseUp={!window.PointerEvent && gestureEnd}
+      onMouseOut={!window.PointerEvent && gestureEnd}
     >
       <Track ref={track}>
         {[...Array(10)].map((card, index) => (
