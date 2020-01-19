@@ -1,10 +1,26 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import { INIT_COMPONENTS } from "./store/component/types";
 
 import Sidebar from "./components/sidebar";
 import CarouselComponent from "./components/carousel-component";
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const Main = styled.main`
+  padding: 16px;
+`;
+
+const Header = styled.h1`
+  margin: 0;
+  text-transform: uppercase;
+`;
 
 export default function App() {
   const components = useSelector(state => state.components.components);
@@ -21,15 +37,17 @@ export default function App() {
   }, []);
 
   return (
-    <main>
+    <Container>
       <Sidebar components={components} />
-      <h1 className="mullra__header">My Components</h1>
-      <ul>
-        {components.map((component, index) => (
-          <li key={`component-${index}`}>{component.title}</li>
-        ))}
-      </ul>
-      <CarouselComponent />
-    </main>
+      <Main>
+        <Header className="mullra__header">My Components</Header>
+        <ul>
+          {components.map((component, index) => (
+            <li key={`component-${index}`}>{component.title}</li>
+          ))}
+        </ul>
+        <CarouselComponent />
+      </Main>
+    </Container>
   );
 }
