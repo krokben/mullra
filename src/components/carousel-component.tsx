@@ -71,12 +71,16 @@ export default function() {
 
   return (
     <CarouselComponent
-      onTouchDown={gestureStart}
-      onTouchMove={gestureMove}
-      onTouchUp={gestureEnd}
-      onMouseDown={gestureStart}
-      onMouseMove={gestureMove}
-      onMouseUp={gestureEnd}
+      onPointerDown={window.PointerEvent && gestureStart}
+      onPointerMove={window.PointerEvent && gestureMove}
+      onPointerUp={window.PointerEvent && gestureEnd}
+      onTouchDown={!window.PointerEvent && gestureStart}
+      onTouchMove={!window.PointerEvent && ggestureMove}
+      onTouchUp={!window.PointerEvent && ggestureEnd}
+      onMouseDown={!window.PointerEvent && ggestureStart}
+      onMouseMove={!window.PointerEvent && ggestureMove}
+      onMouseUp={!window.PointerEvent && ggestureEnd}
+      onMouseOut={!window.PointerEvent && ggestureEnd}
     >
       <Track ref={track}>
         {[...Array(10)].map((card, index) => (
