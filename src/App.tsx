@@ -40,7 +40,7 @@ export default function App() {
     <Container>
       <Sidebar components={components} />
       <Main>
-        <Header className="mullra__header">My Components</Header>
+        <Header>My Components</Header>
         <ul>
           {components.map((component, index) => (
             <li key={`component-${index}`}>{component.title}</li>
