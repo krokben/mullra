@@ -18,6 +18,7 @@ test("get component", async () => {
     type: "header",
     name: "Header",
     description: "first component",
+    active: false,
   };
   const stubStore: Store = { components: [exampleComponent] };
   const component: Component = await getComponent(stubStore, "header");
@@ -30,6 +31,7 @@ test("add component", async () => {
     type: "header",
     name: "Header",
     description: "first component",
+    active: false,
   };
 
   await addComponent(stubStore, newComponent);

@@ -1,6 +1,7 @@
 import * as React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import { Component } from "../types";
+import { Component, SET_ACTIVE_COMPONENT } from "../store/component/types";
 
 interface SidebarProps {
   components: Component[];
@@ -14,16 +15,28 @@ const SidebarUl = styled.ul`
   background-color: #dc7970;
   color: #fff;
   list-style-type: none;
+  cursor: pointer;
 `;
 
-export default class Sidebar extends React.Component<SidebarProps> {
-  public render() {
-    return (
-      <SidebarUl>
-        {this.props.components.map((component, index) => (
-          <li key={`component-${index}`}>{component.name}</li>
-        ))}
-      </SidebarUl>
-    );
-  }
-}
+export default () => {
+  const components = useSelector(state => state.components.components);
+  const dispatch = useDispatch();
+
+  return (
+    <SidebarUl>
+      {components.map((component, index) => (
+        <li
+          key={`component-${index}`}
+          onClick={() =>
+            dispatch({
+              type: SET_ACTIVE_COMPONENT,
+              componentType: component.type,
+            })
+          }
+        >
+          {component.name}
+        </li>
+      ))}
+    </SidebarUl>
+  );
+};

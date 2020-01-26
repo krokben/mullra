@@ -12,6 +12,7 @@ test("POST component then GET components STUB", async () => {
     type: "header",
     name: "Header",
     description: "first component",
+    active: false,
   };
   const stubStore: Store = { components: [] };
 
@@ -28,6 +29,7 @@ test("PUT component then GET components STUB", async () => {
     type: "header",
     name: "Header",
     description: "first component",
+    active: false,
   });
   updateComponentDescription(stubStore, "header", "new component description");
 
@@ -37,6 +39,7 @@ test("PUT component then GET components STUB", async () => {
       type: "header",
       name: "Header",
       description: "new component description",
+      active: false,
     },
   ]);
 });
@@ -44,17 +47,42 @@ test("PUT component then GET components STUB", async () => {
 test("DELETE component then GET components STUB", () => {
   const stubStore: Store = {
     components: [
-      { type: "header", name: "Header", description: "first component" },
-      { type: "slider", name: "Slider", description: "second component" },
-      { type: "button", name: "Button", description: "third component" },
+      {
+        type: "header",
+        name: "Header",
+        description: "first component",
+        active: false,
+      },
+      {
+        type: "slider",
+        name: "Slider",
+        description: "second component",
+        active: false,
+      },
+      {
+        type: "button",
+        name: "Button",
+        description: "third component",
+        active: false,
+      },
     ],
   };
 
   removeComponent(stubStore, "slider")
     .then(async () => {
       const expectedComponents: Component[] = [
-        { type: "header", name: "Header", description: "first component" },
-        { type: "button", name: "Button", description: "third component" },
+        {
+          type: "header",
+          name: "Header",
+          description: "first component",
+          active: false,
+        },
+        {
+          type: "button",
+          name: "Button",
+          description: "third component",
+          active: false,
+        },
       ];
 
       const components: Component[] = await getComponents(stubStore);

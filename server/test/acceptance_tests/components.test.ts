@@ -32,6 +32,7 @@ describe("POST /components", () => {
           type: "slider",
           name: "Slider",
           description: "some description",
+          active: false,
         },
       })
       .set("Accept", "application/json")

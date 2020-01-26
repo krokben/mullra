@@ -1,6 +1,5 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { INIT_COMPONENTS } from "./store/component/types";
 
@@ -10,16 +9,18 @@ import CarouselComponent from "./components/carousel-component";
 const Container = styled.div`
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  margin-bottom: 32px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 `;
 
 const Main = styled.main`
   padding: 16px;
+  overflow: hidden;
 `;
 
 const Header = styled.h1`
-  margin: 0;
-  text-transform: uppercase;
+  margin: 0 0 32px 0;
+  text-align: center;
 `;
 
 export default function App() {
@@ -27,26 +28,26 @@ export default function App() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch({
-      type: INIT_COMPONENTS,
-      components: [
-        ...components,
-        ...[{ name: "component1" }, { name: "component2" }],
-      ],
-    });
+    fetch("/components")
+      .then(res => res.json())
+      .then(data =>
+        dispatch({
+          type: INIT_COMPONENTS,
+          components: [...components, ...data],
+        }),
+      );
   }, []);
+
+  const carouselComponent = components.find(
+    component => component.type === "carousel",
+  );
 
   return (
     <Container>
-      <Sidebar components={components} />
+      <Sidebar />
       <Main>
-        <Header>My Components</Header>
-        <ul>
-          {components.map((component, index) => (
-            <li key={`component-${index}`}>{component.title}</li>
-          ))}
-        </ul>
-        <CarouselComponent />
+        <Header>Mullra Design System</Header>
+        {carouselComponent && carouselComponent.active && <CarouselComponent />}
       </Main>
     </Container>
   );

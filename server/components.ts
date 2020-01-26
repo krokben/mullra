@@ -4,6 +4,7 @@ export interface Component {
   type: string;
   name: string;
   description: string;
+  active: boolean;
 }
 
 export function getComponents(store: Store): Component[] {
